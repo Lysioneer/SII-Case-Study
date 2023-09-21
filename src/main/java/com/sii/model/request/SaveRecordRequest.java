@@ -15,7 +15,6 @@ import java.util.HashMap;
 @Setter
 public class SaveRecordRequest {
 
-    private Integer id;
     private LocalDate timeStamp;
     private String type;
     private String actor;
