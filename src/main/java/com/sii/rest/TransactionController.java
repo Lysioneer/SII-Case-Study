@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.NotNull;
 
 /**
- * Controller class for saving and getting data from the database.
+ * Controller class for saving and getting transactions from the database.
  *
  * Created by Simek Jan on 20.9.2023.
  */
