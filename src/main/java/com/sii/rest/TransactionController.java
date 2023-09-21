@@ -5,15 +5,12 @@ import com.sii.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 
 /**
- * Controller class for saving and getting data from the database.
+ * Controller class for saving and getting transactions from the database.
  *
  * Created by Simek Jan on 20.9.2023.
  */
@@ -32,5 +29,13 @@ public class TransactionController {
         return ResponseEntity.status(HttpStatus.CREATED).body("New record saved.");
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity retrieveRecord(@NotNull @PathVariable(name = "id") String id) {
 
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(service.retrieveRecord(Integer.valueOf(id)));
+        } catch (Exception ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+        }
+    }
 }

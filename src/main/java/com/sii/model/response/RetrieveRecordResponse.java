@@ -1,4 +1,4 @@
-package com.sii.model.request;
+package com.sii.model.response;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,13 +7,13 @@ import java.time.LocalDate;
 import java.util.HashMap;
 
 /**
- * Request for /secured/v1/record.
+ * Response class for /secured/v1/record/{id}.
  *
- * Created by Simek Jan on 20.9.2023.
+ * Created by Simek Jan on 21.9.2023.
  */
 @Getter
 @Setter
-public class SaveRecordRequest {
+public class RetrieveRecordResponse {
 
     private LocalDate timeStamp;
     private String type;

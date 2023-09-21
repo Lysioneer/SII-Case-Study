@@ -1,6 +1,7 @@
 package com.sii.service;
 
 import com.sii.model.request.SaveRecordRequest;
+import com.sii.model.response.RetrieveRecordResponse;
 
 /**
  * Service interface for {@link TransactionServiceImpl}
@@ -10,5 +11,7 @@ import com.sii.model.request.SaveRecordRequest;
 public interface TransactionService {
 
     void saveRecord(SaveRecordRequest request);
+
+    RetrieveRecordResponse retrieveRecord(Integer id);
 
 }

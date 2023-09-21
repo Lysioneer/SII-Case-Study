@@ -14,6 +14,7 @@ import java.util.List;
  */
 @Entity
 @Getter
+@Setter
 @Table(name = "transactions")
 public class TransactionEntity {
 
@@ -21,16 +22,12 @@ public class TransactionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Setter
     private LocalDate timeStamp;
 
-    @Setter
     private String type;
 
-    @Setter
     private String actor;
 
-    @Setter
     @OneToMany(mappedBy = "transaction", cascade = CascadeType.ALL)
     private List<TransactionDataEntity> transactionData;
 
