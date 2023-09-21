@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Database entity for transaction data.
+ *
+ * Created by Simek Jan on 21.9.2023.
+ */
 @Entity
 @Getter
 @Table(name = "transaction_data")

@@ -7,6 +7,11 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Database entity for transaction.
+ *
+ * Created by Simek Jan on 21.9.2023.
+ */
 @Entity
 @Getter
 @Table(name = "transactions")
@@ -26,7 +31,7 @@ public class TransactionEntity {
     private String actor;
 
     @Setter
-    @OneToMany(mappedBy = "transaction")
+    @OneToMany(mappedBy = "transaction", cascade = CascadeType.ALL)
     private List<TransactionDataEntity> transactionData;
 
 }
