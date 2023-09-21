@@ -34,8 +34,8 @@ public class TransactionServiceImpl implements TransactionService {
     @Transactional
     public RetrieveRecordResponse retrieveRecord(Integer id) {
 
-        TransactionEntity entity = repository.findById(id).orElse(null);
-        if (entity == null) {
+        TransactionEntity entity = repository.findById(id).orElse(new TransactionEntity());
+        if (entity.getId() == null) {
             throw new RecordNotFoundException("No suitable record found in db with id: " + id);
         }
 
