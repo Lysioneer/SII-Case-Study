@@ -2,7 +2,7 @@ package com.sii.rest;
 
 import com.sii.model.request.SaveRecordRequest;
 import com.sii.service.TransactionService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,11 +18,11 @@ import javax.validation.constraints.NotNull;
  * Created by Simek Jan on 20.9.2023.
  */
 @RestController
-@RequiredArgsConstructor
 @RequestMapping(path = "/secured/v1/record")
 public class TransactionController {
 
-    private final TransactionService service;
+    @Autowired
+    private TransactionService service;
 
     @PostMapping()
     public ResponseEntity saveRecord(@NotNull @RequestBody SaveRecordRequest request) {
