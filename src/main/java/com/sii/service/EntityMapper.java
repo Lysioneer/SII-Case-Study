@@ -3,9 +3,11 @@ package com.sii.service;
 import com.sii.model.entity.TransactionDataEntity;
 import com.sii.model.entity.TransactionEntity;
 import com.sii.model.request.SaveRecordRequest;
+import com.sii.model.response.RetrieveRecordResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Mapper class for mapping request/response to/from database entity.
@@ -31,6 +33,20 @@ public class EntityMapper {
         }
 
         return entity;
+    }
+
+    public RetrieveRecordResponse map(TransactionEntity entity) {
+        RetrieveRecordResponse response = new RetrieveRecordResponse();
+        response.setTimeStamp(entity.getTimeStamp());
+        response.setType(entity.getType());
+        response.setActor(entity.getActor());
+        response.setTransactionData(new HashMap<String, String>());
+
+        for (var item : entity.getTransactionData()) {
+            response.getTransactionData().put(item.getTransactionKey(), item.getTransactionValue());
+        }
+
+        return response;
     }
 
 }
